@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
+
 body {
   padding: 0px;
   margin: 0px;
+  font-family: 'Raleway', 'Tahoma', sans-serif;
 }
