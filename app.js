@@ -39,11 +39,43 @@ function displayError(session) {
     return 'User was not found in database.';
   }
 }
+function defaultRender(res, req, page) {
+  var content = "";
+  app.render('header', {
+    config: config,
+    error: displayError(req.session),
+    page: page
+  }, function(err, html) {
+    content += html;         
+  });
+  app.render('navbar', {
+    config: config,
+    error: displayError(req.session),
+    page: page
+  }, function(err, html) {
+    content += html;         
+  });
+  app.render(page, {
+    config: config,
+    error: displayError(req.session),
+    page: page
+  }, function(err, html) {
+    content += html;         
+  });
+  app.render('footer', {
+    config: config,
+    error: displayError(req.session),
+    page: page
+  }, function(err, html) {
+    content += html;         
+  });
+  res.end(content);
+}
 
 // Frontend pages
 app.get('/', function(req, res) {
   requireAuth(req, res);
-  res.send('hi');
+  defaultRender(res, req, 'Home');
 });
 app.get('/login/', function(req, res) {
   res.render('login', {
