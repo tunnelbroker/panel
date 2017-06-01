@@ -11,6 +11,6 @@ This application requires the following packages to be installed:
 
 You can install these requirements using the following commands:
 
-    apt-get install git node npm
+    apt-get install git nodejs npm
     npm install express --save
     
