@@ -28,7 +28,7 @@ body.login {
 .form_label {
   font-weight: 700;
   font-size: 15px;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.5);
 }
 .form_input {
   display: block;
