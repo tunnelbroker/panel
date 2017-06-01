@@ -1,7 +1,7 @@
 var config = {};
 
 // General
-config.sitename = 'Tunnelbroker';
+config.sitename = 'tb.fbnw.network';
 
 // MySQL
 config.mysql_host = 'localhost';
