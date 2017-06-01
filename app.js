@@ -15,18 +15,19 @@ app.use(cookieSession({
   keys: [ 'asdf' ],
   maxAge: 24 * 60 * 60 * 1000
 }));
-app.use(bodyParser({
+app.use(bodyParser.urlencoded({
   extended: true
 }));
 var connection = mysql.createConnection({
   host     : config.mysql_host,
   user     : config.mysql_user,
-  password : config.mysql_pass
+  password : config.mysql_pass,
+  database : config.mysql_db
 });
 connection.connect();
 
 // Methods
-function requireAuth() {
+function requireAuth(req, res) {
   if(!req.session.email) {
     res.redirect('/login/');
   }
@@ -41,9 +42,8 @@ function displayError(session) {
 
 // Frontend pages
 app.get('/', function(req, res) {
-  if(!req.session.user_email) {
-    res.redirect('/login/');
-  }
+  requireAuth(req, res);
+  res.send('hi');
 });
 app.get('/login/', function(req, res) {
   res.render('login', {
@@ -55,12 +55,19 @@ app.get('/login/', function(req, res) {
 // Backend
 app.post('/api/login/', function(req, res) {
   connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [req.body.email, crypto.createHash('sha256').update(req.body.password).digest('base64')], function(err, results, fields) {
-    if(!results) {
+    if(!results[0]) {
       req.session.error = 'user_not_found';
       res.redirect('/login/');
+    } else {
+      req.session.email = req.body.email;
+      res.redirect('/');
     }
   });
 });
+app.get('/api/logout/', function(req, res) {
+  req.session.email = null;
+  res.redirect('/login/');
+})
 
 // Listen
 app.listen(3000, function() {
