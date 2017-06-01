@@ -5,3 +5,65 @@ body {
   margin: 0px;
   font-family: 'Raleway', 'Tahoma', sans-serif;
 }
+body.login {
+  background: #4e4376;
+  background: -webkit-linear-gradient(45deg, #2b5876, #4e4376);
+  background: linear-gradient(45deg, #2b5876, #4e4376);
+}
+.logo {
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 90px;
+}
+.login_form {
+  display: block;
+  background: #ffffff;
+  border-radius: 3px;
+  padding: 30px 30px;
+  max-width: 500px;
+  margin: 30px auto 60px auto;
+}
+.form_label {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: rgba(0,0,0,0.6);
+}
+.form_input {
+  display: block;
+  margin: 15px 0px;
+  border: 1px solid #e6e6e6;
+  box-shadow: none;
+  border-radius: 3px;
+  padding: 15px;
+  width: 100%;
+  outline: none;
+  transition: 0.2s border-color;
+}
+.form_input:focus {
+  border-color: #4e4376;
+}
+.btn {
+  padding: 16px;
+  border-radius: 3px;
+  outline: none;
+  text-decoration: none;
+  box-shadow: none;
+  transition: 0.2s background-color;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn.btn-primary {
+  background: #4e4376;
+  color: #ffffff;
+}
+.btn.btn-block {
+  display: block;
+  width: 100%;
+}

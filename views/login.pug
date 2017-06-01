@@ -1,8 +1,13 @@
 html
   head
-    title='Tunnelbroker'
+    title=sitename
     link(href='/main.css',rel='stylesheet')/
-  body(class='login')/
-    div(class='form')/
-      h1='test'
+  body(class='login')
+    h2(class='logo')=sitename
+    form(class='login_form',action='/api/login/',method='post')
+      label(class='form_label')='E-Mail'
+      input(class='form_input',name='email',type='email',required)
+      label(class='form_label')='Password'
+      input(class='form_input',name='password',type='password',required)
+      button(class='btn btn-primary btn-block',type='submit')='Sign In'
   
