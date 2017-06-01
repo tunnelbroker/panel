@@ -59,6 +59,7 @@ body.login {
   border: none;
   font-size: 15px;
   font-weight: 600;
+  text-align: center;
 }
 .btn:hover {
   cursor: pointer;
@@ -82,4 +83,21 @@ body.login {
 .alert.alert-danger {
   border-color: #e74c3c;
   color: #e74c3c;
+}
+.anchor {
+  text-decoration: none;
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3498db;
+  transition: 0.2s color;
+}
+.anchor:hover {
+  color: #2980b9;
+}
+.anchor.anchor-right {
+  float: right;
+}
+.clearfix {
+  clear: both;
 }
