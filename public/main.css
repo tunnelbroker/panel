@@ -69,10 +69,14 @@ body.login {
   width: 100%;
 }
 .alert {
-  padding: 12px;
-  margin-bottom: 20px;
+  padding: 14px;
+  margin-bottom: 30px;
   border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 3px;
 }
 .alert.alert-danger {
-  border-color: red;
+  border-color: #e74c3c;
+  color: #e74c3c;
 }
