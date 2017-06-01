@@ -28,12 +28,11 @@ body.login {
 .form_label {
   font-weight: 700;
   font-size: 15px;
-  margin-bottom: 10px;
   color: rgba(0,0,0,0.6);
 }
 .form_input {
   display: block;
-  margin: 15px 0px;
+  margin: 10px 0px 20px 0px;
   border: 1px solid #e6e6e6;
   box-shadow: none;
   border-radius: 3px;
