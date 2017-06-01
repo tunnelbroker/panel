@@ -1,11 +1,12 @@
 html
   head
-    title=sitename
+    title=config.sitename
     link(href='/main.css',rel='stylesheet')/
     meta(charset='utf-8')/
   body(class='login')
-    h2(class='logo')=sitename
+    h2(class='logo')=config.sitename
     form(class='login_form',action='/api/login/',method='post')
+      div(class='alert alert-danger')=error
       label(class='form_label')='E-Mail'
       input(class='form_input',name='email',type='email',required)
       label(class='form_label')='Password'
