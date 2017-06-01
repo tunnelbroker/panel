@@ -1,1 +1,11 @@
-<body>
+div(class='navbar')
+  div(class='items')
+    div(class='container')
+      span(class='logo_nav')=config.sitename
+      ul
+        li(class=(page=='Home'))
+          a(href='/')='Home'
+        li(class=(page=='Tunnels'))
+          a(href='/tunnels/')='Tunnels'
+        
+      
