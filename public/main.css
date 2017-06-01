@@ -27,6 +27,9 @@ body.login {
   max-width: 500px;
   margin: 30px auto 60px auto;
 }
+.form_label, .btn, .alert, .logo {
+  user-select: none;
+}
 .form_label {
   font-weight: 700;
   font-size: 15px;
