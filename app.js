@@ -53,7 +53,7 @@ app.get('/login/', function(req, res) {
 
 // Backend
 app.post('/api/login/', function(req, res) {
-  connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [req.body.email, req.body.password], function(err, results, fields) {
+  connection.query('SELECT * FROM users WHERE email = ? AND password = ?', [req.body.email, sha256(req.body.password)], function(err, results, fields) {
     if(!results) {
       req.session.error = 'user_not_found';
       res.redirect('/login/');
