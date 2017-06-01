@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 app.set('view engine', 'pug');
 
-app.get('/login/', function() {
+app.get('/login/', function(req, res) {
   res.render('login');
 });
 
