@@ -39,7 +39,7 @@ function displayError(session) {
     return 'User was not found in database.';
   }
 }
-function defaultRender(res, req, page) {
+function defaultRender(res, req, page, params) {
   var content = "";
   app.render('header', {
     config: config,
@@ -58,7 +58,8 @@ function defaultRender(res, req, page) {
   app.render(page, {
     config: config,
     error: displayError(req.session),
-    page: page
+    page: page,
+    params:params
   }, function(err, html) {
     content += html;         
   });
@@ -75,7 +76,20 @@ function defaultRender(res, req, page) {
 // Frontend pages
 app.get('/', function(req, res) {
   requireAuth(req, res);
-  defaultRender(res, req, 'Home');
+  connection.query('SELECT * FROM tunnels WHERE email = ?', [req.session.email], function(err, results, fields) {
+    if(!err) {
+      var newResults = results;
+      for(var i = 0; i < results.length; i++) {
+        connection.query('SELECT router_location from routers WHERE router_id = ?', [results[0].tunnel_router], function(err2, results2, fields2) {
+          newResults[0].tunnel_location = results2[0].router_location;
+        });
+      }
+      console.log(newResults[0]);
+      defaultRender(res, req, 'Home', {status:'OK',results:newResults});  
+    } else {
+      defaultRender(res, req, 'Home', {status:'ERROR', error:err});  
+    }
+  });
 });
 app.get('/login/', function(req, res) {
   res.render('login', {

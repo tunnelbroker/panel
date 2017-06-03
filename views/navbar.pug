@@ -4,12 +4,8 @@ div(class='navbar')
       span(class='logo_nav')=config.sitename
       ul
         li(class=(page=='Home'))
-          a(href='/')='Home'
-        li(class=(page=='Tunnels'))
-          a(href='/tunnels/')='Tunnels'
+          a(href='/')='Tunnels'
         li(class=(page=='BGP'))
           a(href='/bgp/')='BGP Sessions'
-        li()
+        li
           a(href='/api/logout/')='Sign Out'
-        
-      

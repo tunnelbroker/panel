@@ -1,1 +1,22 @@
- hi
+div(class='content')
+  div(class='container')
+    a(class='btn btn-primary',href='/tunnels/create/',style='margin-bottom: 30px; display: table;')='Create Tunnel'
+    if params.status != 'OK'
+      div(class='alert alert-danger')=params.error
+    else
+      table(class='table-default')
+        thead
+          th='Tunnel'
+          th='Location'
+          th='Status'
+        tbody
+          if !params.results[0]
+            tr
+              td='You do not have any tunnels configured.'
+              td=''
+              td=''
+          else
+            each item in params.results
+              tr
+                td=item.tunnel_description
+                td=item.tunnel_location

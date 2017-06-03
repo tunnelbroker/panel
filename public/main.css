@@ -2,6 +2,7 @@
 
 body * {
   font-family: 'Raleway', 'Tahoma', sans-serif !important;
+  box-sizing: border-box !important;
 }
 body {
   padding: 0px;
@@ -125,16 +126,20 @@ body.login {
   display: inline-block;
   margin-left: 30px;
   font-size: 15px;
-  margin-top: 46px;
+  margin-top: 45px;
 }
 .navbar ul li a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 17px;
   font-weight: 600;
+  transition: 0.2s all;
+}
+.navbar ul li a:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 .navbar ul li.true a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 .navbar .logo_nav {
   color: #ffffff;
@@ -143,4 +148,34 @@ body.login {
   font-weight: 700;
   user-select: none;
   line-height: 112px;
+}
+.content {
+  position: absolute;
+  top: 162px;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.table-default {
+  border: 1px solid #e6e6e6;
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-default thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.table-default tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+.table-default tr>th {
+  border-bottom: 1px solid #e6e6e6;
+  text-align: left;
+  padding: 15px;
+}
+.table-default tr>td {
+  padding: 15px;
 }
